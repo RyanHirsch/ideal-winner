@@ -22,3 +22,5 @@ const getMiddleware = () => {
 };
 
 export const store = createStore(createRootReducer(history), composeWithDevTools(getMiddleware()));
+export const createTestStore = preloadedState =>
+  createStore(createRootReducer(history), preloadedState, composeWithDevTools(getMiddleware()));
