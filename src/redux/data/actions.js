@@ -3,12 +3,22 @@ import { getPeopleApi } from "./operations";
 export const UPDATE = "data/update";
 export const SET = "data/set";
 
+function injectKeyData(key, value) {
+  const [type, id] = key.split(":");
+  return {
+    __key: key,
+    __type: type,
+    __id: id,
+    ...value,
+  };
+}
+
 export function updateData(key, value) {
   return {
     type: UPDATE,
     payload: {
       key,
-      value,
+      value: injectKeyData(key, value),
     },
   };
 }
@@ -18,7 +28,7 @@ export function setData(key, value) {
     type: SET,
     payload: {
       key,
-      value,
+      value: injectKeyData(key, value),
     },
   };
 }

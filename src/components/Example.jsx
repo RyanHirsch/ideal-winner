@@ -4,9 +4,9 @@ import { bindActionCreators } from "redux";
 
 import { actions } from "../redux/data/actions";
 import Debug from "./Debug";
-import { getArbitrary } from "../redux/data/selectors";
+import { getArbitrary, getByType } from "../redux/data/selectors";
 
-export function UnconnectedExample({ getPeople, setData, updateData, example }) {
+export function UnconnectedExample({ getPeople, setData, updateData, example, swapiValues }) {
   return (
     <div>
       Example
@@ -26,6 +26,7 @@ export function UnconnectedExample({ getPeople, setData, updateData, example }) 
       <button onClick={() => getPeople()} type="button">
         GET
       </button>
+      SWAPI count {swapiValues.length}
     </div>
   );
 }
@@ -33,6 +34,7 @@ export function UnconnectedExample({ getPeople, setData, updateData, example }) 
 function mapStateToProps(state, ownProps) {
   return {
     example: getArbitrary(state, "test"),
+    swapiValues: getByType(state, "swapi"),
   };
 }
 
