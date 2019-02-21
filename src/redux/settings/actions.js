@@ -1,0 +1,4 @@
+export const SETTINGS_SAVED = "SETTINGS_SAVED";
+export const SETTINGS_PAGE_UNLOADED = "SETTINGS_PAGE_UNLOADED";
+export const ASYNC_START = "ASYNC_START";
+export const ASYNC_END = "ASYNC_END";
